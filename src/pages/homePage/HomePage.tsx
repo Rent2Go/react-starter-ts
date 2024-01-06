@@ -11,7 +11,8 @@ const HomePage = (props: Props) => {
   }, []);
 
   const fetchProducts = () => {
-       axios.get<GetAllProductsModel>("https://dummyjson.com/products").then(response => {
+       axios.get<GetAllProductsModel>("https://dummyjson.com/products")
+       .then(response => {
         console.log(response.data);
        });
   };
