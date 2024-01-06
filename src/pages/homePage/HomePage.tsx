@@ -3,8 +3,10 @@ import "./homepage.css"
 
 type Props = {}
 
-export default function HomePage({}: Props) {
+const HomePage = (props: Props) => {
   return (
     <div>HomePage</div>
   )
 }
+
+export default HomePage
