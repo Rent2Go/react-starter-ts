@@ -5,6 +5,7 @@ import { GetAllProductsModel } from "../../../models/responses/GetAllProducts";
 import { ProductModel } from "../../../models/responses/ProductModel";
 import { ProductCard } from "../../../components";
 import { Link } from "react-router-dom";
+import "./products.css"
 
 type Props = {};
 

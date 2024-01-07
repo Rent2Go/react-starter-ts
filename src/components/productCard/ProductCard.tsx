@@ -27,13 +27,13 @@ const ProductCard = (props: Props) => {
         </p>
         <div className="">
           <Link
-            to={"/product-detail?id=" + props.product.id}
+            to={`/product-detail/${props.product.id}`}
             className="btn btn-primary btn-sm mr-1"
           >
             Detail
           </Link>
           <Link
-            to={"/updateProduct?id=" + props.product.id}
+            to={`/updateProduct/${props.product.id}`}
             className="btn btn-warning btn-sm mr-1"
           >
             Update
