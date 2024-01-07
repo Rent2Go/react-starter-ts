@@ -20,10 +20,10 @@ const ProductCard = (props: Props) => {
       <img src={props.product.thumbnail} />
       <div className="card-body">
         <h5 className="card-title">
-          {truncateString(props.product.title, 28)}
+          {truncateString(props.product.title, 26)}
         </h5>
         <p className="card-text">
-          {truncateString(props.product.description, 60)}
+          {truncateString(props.product.description, 58)}
         </p>
         <Link
           to={"/products?id=" + props.product.id}
