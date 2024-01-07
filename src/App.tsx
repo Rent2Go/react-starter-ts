@@ -14,6 +14,7 @@ function App(): React.ReactElement {
   return (
     <>
       <Navbar />
+
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />

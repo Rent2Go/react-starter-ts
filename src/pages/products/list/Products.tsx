@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ProductModel } from "../../../models/responses/ProductModel";
-import { ProductCard } from "../../../components";
+import { Header, ProductCard } from "../../../components";
 import { Link } from "react-router-dom";
 import ProductService from "../../../services/ProductService";
 
@@ -41,6 +41,8 @@ const Products = (props: Props) => {
     (product) => !deletedProductIds.includes(product.id)
   );
   return (
+    <>
+    <Header />
     <div className="productContainer">
       <div className="row">
         <div className="col-12">
@@ -59,6 +61,8 @@ const Products = (props: Props) => {
         ))}
       </div>
     </div>
+    </>
+    
   );
 };
 
