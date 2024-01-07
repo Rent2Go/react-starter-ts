@@ -2,6 +2,10 @@
     background: #f8f9fa;
     padding: 4rem 18rem;
   }
+  .previewCard{
+    width: 25.5rem;
+    height: 25rem;
+  }
   
   @media screen and (max-width: 960px) {
     .productContainer {

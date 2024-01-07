@@ -14,7 +14,7 @@ function App(): React.ReactElement {
         <Route path="/products" element={<Products />} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/addProduct" element={<AddProduct />} />
-        <Route path="/updateProduct" element={<UpdateProduct />} />
+        <Route path="/updateProduct/:id" element={<UpdateProduct />} />
       </Routes>
       <Footer />
     </BrowserRouter>
