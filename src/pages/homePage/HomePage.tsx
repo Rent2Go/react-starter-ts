@@ -3,6 +3,7 @@ import "./homepage.css";
 import axios from "axios";
 import { GetAllProductsModel } from "../../models/responses/GetAllProducts";
 import { ProductModel } from "../../models/responses/ProductModel";
+import { ProductCard } from "../../components";
 
 type Props = {};
 
@@ -25,7 +26,7 @@ const HomePage = (props: Props) => {
       <div className="row">
         {products.map((product) => (
           <div key={product.id} className="col-3">
-            <p>{product.brand}</p>
+            <ProductCard product={product} />{" "}
           </div>
         ))}
       </div>
