@@ -5,6 +5,7 @@ import { ProductModel } from "../../models/responses/ProductModel";
 
 type Props = {
   product: ProductModel;
+  onDelete: (productId: number) => void;
 };
 function truncateString(text: string, maxLength: number): string {
   if (text.length <= maxLength) {
@@ -15,6 +16,9 @@ function truncateString(text: string, maxLength: number): string {
 }
 
 const ProductCard = (props: Props) => {
+  const handleDelete = () => {
+    props.onDelete(props.product.id);
+  };
   return (
     <div className="card">
       <img src={props.product.thumbnail} alt="product_image" />
@@ -38,7 +42,9 @@ const ProductCard = (props: Props) => {
           >
             Update
           </Link>
-          <button className="btn btn-danger btn-sm ">Delete</button>
+          <button className="btn btn-danger btn-sm " onClick={handleDelete}>
+            Delete
+          </button>
         </div>
       </div>
     </div>
