@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Navbar, Footer } from "./components";
 import {
   HomePage,
@@ -12,7 +12,7 @@ import "./app.css";
 
 function App(): React.ReactElement {
   return (
-    <BrowserRouter>
+    <>
       <Navbar />
       <main>
         <Routes>
@@ -24,7 +24,7 @@ function App(): React.ReactElement {
         </Routes>
       </main>
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
 
