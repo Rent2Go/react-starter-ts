@@ -25,13 +25,21 @@ const ProductCard = (props: Props) => {
         <p className="card-text">
           {truncateString(props.product.description, 58)}
         </p>
-        <Link
-          to={"/products?id=" + props.product.id}
-          className="btn btn-primary btn-sm mr-1"
-        >
-          Detail
-        </Link>
-        <button className="btn btn-danger btn-sm ">Delete</button>
+        <div className="">
+          <Link
+            to={"/product-detail?id=" + props.product.id}
+            className="btn btn-primary btn-sm mr-1"
+          >
+            Detail
+          </Link>
+          <Link
+            to={"/updateProduct?id=" + props.product.id}
+            className="btn btn-warning btn-sm mr-1"
+          >
+            Update
+          </Link>
+          <button className="btn btn-danger btn-sm ">Delete</button>
+        </div>
       </div>
     </div>
   );
