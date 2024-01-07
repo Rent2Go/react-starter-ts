@@ -17,7 +17,7 @@
   }
 }
 @media screen and (max-width: 320px) {
-    .header__section-banner_container img {
-      height: 100px;
-    }
+  .header__section-banner_container img {
+    height: 100px;
   }
+}
