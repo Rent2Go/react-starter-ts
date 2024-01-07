@@ -1,15 +1,17 @@
 import { ReactElement } from "react";
 import { HomePage } from "./pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navbars } from "./components";
+import { Navbar } from "./components";
+import { Footer } from "./components";
 
 function App(): ReactElement {
   return (
     <BrowserRouter>
-     <Navbars />
+     <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
