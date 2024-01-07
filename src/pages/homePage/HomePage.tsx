@@ -22,7 +22,7 @@ const HomePage = (props: Props) => {
       });
   };
   return (
-    <div className="container">
+    <div className="productContainer">
       <div className="row">
         {products.map((product) => (
           <div key={product.id} className="col-xl-3 col-l-4 col-md-6 col-sm-12">
