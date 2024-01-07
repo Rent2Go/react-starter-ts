@@ -5,7 +5,8 @@ import { ProductModel } from "../../../models/responses/ProductModel";
 import "../../../pages/products.css";
 import { Link } from "react-router-dom";
 
-const ProductDetail: React.FC = () => {
+type Props = {};
+const ProductDetail=(props: Props) => {
   const { id } = useParams();
   const [productDetail, setProductDetail] = useState<
     ProductModel | undefined

@@ -5,6 +5,7 @@ import { ProductModel } from "../../../models/responses/ProductModel";
 import { ProductCard } from "../../../components";
 import { Link } from "react-router-dom";
 import "../../../pages/products.css";
+import ProductService from "../../../services/ProductService";
 
 type Props = {};
 
@@ -17,15 +18,15 @@ const Products = (props: Props) => {
   }, [deletedIds]);
 
   const fetchProducts = () => {
-    axios
-      .get<GetAllProductsModel>("https://dummyjson.com/products")
-      .then((response) => {
-        const filteredProducts = response.data.products.filter(
-          //if clicked to delete, insert into a deleted list..
-          (product) => !deletedIds.includes(product.id) // if deletedProducts equal to productList, don't list them..
-        );
-        setProducts(filteredProducts);
-      });
+    let service: ProductService = new ProductService();
+    service.getAll().then((response) => {
+      setProducts(response.data.products);
+      const filteredProducts = response.data.products.filter(
+        //if clicked to delete, insert into a deleted list..
+        (product) => !deletedIds.includes(product.id) // if deletedProducts equal to productList, don't list them..
+      );
+      setProducts(filteredProducts);
+    });
   };
   const [deletedProductIds, setDeletedProductIds] = useState<number[]>([]);
 
