@@ -1,4 +1,5 @@
 import React from "react";
+import "./footer.css"
 
 const Footer = (): JSX.Element => (
   <footer className="page-footer font-small blue pt-4 bg-dark text-white">
