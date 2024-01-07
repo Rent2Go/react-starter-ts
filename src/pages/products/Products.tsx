@@ -24,6 +24,13 @@ const Products = (props: Props) => {
   return (
     <div className="productContainer">
       <div className="row">
+        <div className="col-12">
+          <div className="d-flex justify-content-end mb-5">
+            <button className="btn btn-secondary">Add New Product</button>
+          </div>
+        </div>
+      </div>
+      <div className="row">
         {products.map((product) => (
           <div key={product.id} className="col-xl-3 col-l-4 col-md-6 col-sm-12">
             <ProductCard product={product} />{" "}
