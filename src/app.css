@@ -1,3 +1,14 @@
-.main{
-    height: 84vh;
+.main {
+  height: 84vh;
+}
+
+.productContainer {
+  background: #f8f9fa;
+  padding: 4rem 18rem;
+}
+
+@media screen and (max-width: 960px) {
+  .productContainer {
+    padding: 2rem 4rem;
+  }
 }
