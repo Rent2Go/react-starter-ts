@@ -17,7 +17,7 @@ function truncateString(text: string, maxLength: number): string {
 const ProductCard = (props: Props) => {
   return (
     <div className="card">
-      <img src={props.product.thumbnail} />
+      <img src={props.product.thumbnail} alt="product_image" />
       <div className="card-body">
         <h5 className="card-title">
           {truncateString(props.product.title, 26)}

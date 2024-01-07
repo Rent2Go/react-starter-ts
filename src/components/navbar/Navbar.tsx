@@ -11,10 +11,10 @@ const Navbars: React.FC<Props> = (props) => {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home"><img src={logo} width={64}/></Navbar.Brand>
+        <Navbar.Brand href="#home"><img src={logo} width={64} alt="logo"/></Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Products</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/products">Products</Nav.Link>
           <Nav.Link href="#pricing">Categories</Nav.Link>
         </Nav>
       </Container>
