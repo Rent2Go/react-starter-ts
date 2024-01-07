@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./products.css";
 import axios from "axios";
-import { GetAllProductsModel } from "../../models/responses/GetAllProducts";
-import { ProductModel } from "../../models/responses/ProductModel";
-import { ProductCard } from "../../components";
+import { GetAllProductsModel } from "../../../models/responses/GetAllProducts";
+import { ProductModel } from "../../../models/responses/ProductModel";
+import { ProductCard } from "../../../components";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -26,7 +27,9 @@ const Products = (props: Props) => {
       <div className="row">
         <div className="col-12">
           <div className="d-flex justify-content-end mb-5">
-            <button className="btn btn-secondary">Add New Product</button>
+            <Link to={"/addProduct"} className="btn btn-secondary">
+              Add New Product
+            </Link>
           </div>
         </div>
       </div>
