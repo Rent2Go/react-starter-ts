@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { GetAllProductsModel } from "../../../models/responses/GetAllProducts";
 import { ProductModel } from "../../../models/responses/ProductModel";
 import { ProductCard } from "../../../components";
 import { Link } from "react-router-dom";
-import "../../../pages/products.css";
 import ProductService from "../../../services/ProductService";
+
+import "../../../pages/products.css";
+
 
 type Props = {};
 
