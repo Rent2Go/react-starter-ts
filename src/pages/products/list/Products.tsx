@@ -34,6 +34,7 @@ const Products = (props: Props) => {
     // insert to deleted List
     setDeletedIds((prevIds) => [...prevIds, productId]);
     console.log("Deleted Product:", productId);
+    alert("Deleted Product.. ID:"+ productId);
   };
 
   const filteredProducts = products.filter(
