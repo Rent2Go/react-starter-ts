@@ -50,3 +50,20 @@
 
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .productContainer {
+    padding: 4rem 10rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .productContainer {
+    padding: 4rem 6rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .productContainer {
+    padding: 4rem 4rem;
+  }
+}

@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
 }
 main {
-  flex: 1; 
+  flex: 1;
   min-height: 100vh;
 }
 
@@ -13,10 +13,49 @@ main {
   background: #f8f9fa;
   padding: 4rem 18rem;
 }
-
+@media screen and (max-width: 1760px) {
+  .productContainer {
+    padding: 4rem 10rem;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .productContainer {
+    padding: 4rem 6rem;
+  }
+}
+@media screen and (max-width: 1275px) {
+  .productContainer {
+    padding: 2rem 4rem;
+  }
+}
+@media screen and (max-width: 1210px) {
+  .productContainer {
+    padding: 2rem 3rem;
+  }
+}
 
 @media screen and (max-width: 960px) {
   .productContainer {
     padding: 2rem 4rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .productContainer {
+    padding: 4rem 6rem;
+  }
+  @media screen and (max-width: 425px) {
+    .productContainer {
+      padding: 4rem 4rem;
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .productContainer {
+    padding: 4rem 4rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .productContainer {
+    padding: 2rem;
   }
 }

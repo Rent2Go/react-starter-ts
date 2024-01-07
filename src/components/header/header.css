@@ -1,12 +1,23 @@
-.header__section-banner_container{
-    padding: 2rem 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.header__section-banner_container {
+  padding: 2rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.header__section-banner_container img{
-    height: 250px;
-    width: 1750px;
-    object-fit: cover;
+.header__section-banner_container img {
+  height: 250px;
+  width: 1750px;
+  object-fit: cover;
 }
+
+@media screen and (max-width: 425px) {
+  .header__section-banner_container img {
+    height: 135px;
+  }
+}
+@media screen and (max-width: 320px) {
+    .header__section-banner_container img {
+      height: 100px;
+    }
+  }
