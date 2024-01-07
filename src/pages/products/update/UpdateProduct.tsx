@@ -183,46 +183,49 @@ const UpdateProduct = () => {
         </Form>
 
         {updatedProduct && (
-          <div className="row mt-4">
-            <div className="col-12">
-              <div className="card previewCard">
-                <div className="card-header">
-                  <img src={product.thumbnail} alt="product-thumbnail" />
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">{updatedProduct.title}</h5>
-                  <p className="card-text">{updatedProduct.description}</p>
-                  <div className="row">
-                    <div className="col-6">
-                      <p className="card-text">
-                        <strong>Brand:</strong> {updatedProduct.brand}
-                      </p>
-                    </div>
-                    <div className="col-6">
-                      <p className="card-text">
-                        <strong>Category:</strong> {updatedProduct.category}
-                      </p>
-                    </div>
-                    <div className="col-6">
-                      <p className="card-text">
-                        <strong>Stock:</strong> {updatedProduct.stock}
-                      </p>
-                    </div>
-                    <div className="col-6">
-                      <p className="card-text">
-                        <strong>Discount Percentage:</strong>{" "}
-                        {updatedProduct.discountPercentage}
-                      </p>
-                    </div>
-                    <div className="col-6">
-                      <p className="card-text">
-                        <strong>Price:</strong> {updatedProduct.price}
-                      </p>
-                    </div>
-                    <div className="col-6">
-                      <p className="card-text">
-                        <strong>Rating:</strong> {updatedProduct.rating}
-                      </p>
+          <div>
+            <h6 className="text-success text-end bold">Successful ...</h6>
+            <div className="row mt-4">
+              <div className="col-12">
+                <div className="card previewCard">
+                  <div className="card-header">
+                    <img src={product.thumbnail} alt="product-thumbnail" />
+                  </div>
+                  <div className="card-body">
+                    <h5 className="card-title">{updatedProduct.title}</h5>
+                    <p className="card-text">{updatedProduct.description}</p>
+                    <div className="row">
+                      <div className="col-6">
+                        <p className="card-text">
+                          <strong>Brand:</strong> {updatedProduct.brand}
+                        </p>
+                      </div>
+                      <div className="col-6">
+                        <p className="card-text">
+                          <strong>Category:</strong> {updatedProduct.category}
+                        </p>
+                      </div>
+                      <div className="col-6">
+                        <p className="card-text">
+                          <strong>Stock:</strong> {updatedProduct.stock}
+                        </p>
+                      </div>
+                      <div className="col-6">
+                        <p className="card-text">
+                          <strong>Discount Percentage:</strong>{" "}
+                          {updatedProduct.discountPercentage}
+                        </p>
+                      </div>
+                      <div className="col-6">
+                        <p className="card-text">
+                          <strong>Price:</strong> {updatedProduct.price}
+                        </p>
+                      </div>
+                      <div className="col-6">
+                        <p className="card-text">
+                          <strong>Rating:</strong> {updatedProduct.rating}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
