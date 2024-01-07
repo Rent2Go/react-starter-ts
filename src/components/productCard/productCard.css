@@ -1,0 +1,28 @@
+.card {
+  height: 350px;
+  border: none;
+
+  margin: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+}
+.card img {
+  object-fit: cover;
+  height: 200px;
+
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.card h5 {
+  font-size: 14px;
+}
+.card p {
+  font-size: 12px;
+}
+.btn-sm {
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+}
