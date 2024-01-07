@@ -1,81 +1,67 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { ProductModel } from "../../../models/responses/ProductModel";
 import "../../../pages/products.css";
 import { Link } from "react-router-dom";
+import ProductService from "../../../services/ProductService";
 
 type Props = {};
-const ProductDetail=(props: Props) => {
-  const { id } = useParams();
-  const [productDetail, setProductDetail] = useState<
-    ProductModel | undefined
-  >();
+
+const ProductDetail = (props: Props) => {
+  const [productDetail, setProductDetail] = useState<ProductModel | undefined>();
+  const params = useParams<{ id: string }>();
 
   useEffect(() => {
-    const axiosGet = async () => {
-      try {
-        const response = await axios.get(
-          `https://dummyjson.com/products/${id}`
-        );
-        setProductDetail(response.data);
-      } catch (error) {
-        console.error("Error fetching product details:", error);
-      }
-    };
+    if (params.id) {
+      fetchDetails(params.id);
+    }
+  }, [params.id]);
 
-    axiosGet();
-  }, [id]);
-
-  if (!productDetail) {
-    return <div>Loading...</div>;
-  }
-
+  const fetchDetails = async (id: string) => {
+    let service: ProductService = new ProductService();
+    let response = await service.getById(parseInt(id));
+    setProductDetail(response.data);
+  };
   return (
     <div className="main">
       <div className="productDetail__section">
         <div className="row">
-        <div className="productDetail__section-head mt-2 text-center">
-              <h1>{productDetail.title}</h1>
-            </div>
-          <div className="col-12 mb-3 mt-2" key={productDetail.id}>
+          <div className="productDetail__section-head mt-2 text-center">
+            <h1>{productDetail?.title}</h1>
+          </div>
+          <div className="col-12 mb-3 mt-2" key={productDetail?.id}>
             <div className="productDetail__section-image_container">
-              {productDetail.images ? (
+              {productDetail?.images ? (
                 productDetail.images.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`Product Image ${index + 1}`}
-                  />
+                  <img key={index} src={image} alt={`Product Image ${index + 1}`} />
                 ))
               ) : (
                 <div>No images available.</div>
               )}
             </div>
 
-            
             <div className="productDetail__section-content">
               <p className="">
-                <strong>Category:</strong> {productDetail.category}
+                <strong>Category:</strong> {productDetail?.category}
               </p>
 
               <p className="">
-                <strong>Brand:</strong> {productDetail.brand}
+                <strong>Brand:</strong> {productDetail?.brand}
               </p>
               <p className="">
-                <strong>Description:</strong> {productDetail.description}
+                <strong>Description:</strong> {productDetail?.description}
               </p>
               <p className="">
-                <strong>Price:</strong> {productDetail.price}
+                <strong>Price:</strong> {productDetail?.price}
               </p>
               <p className="">
-                <strong>Discount:</strong> {productDetail.discountPercentage}
+                <strong>Discount:</strong> {productDetail?.discountPercentage}
               </p>
               <p className="">
-                <strong>Stock:</strong> {productDetail.stock}
+                <strong>Stock:</strong> {productDetail?.stock}
               </p>
               <p className="">
-                <strong>Rating:</strong> {productDetail.rating}
+                <strong>Rating:</strong> {productDetail?.rating}
               </p>
               <div className="action-row">
                 <Link to={`/products`} className="btn btn-danger btn-sm mr-1">

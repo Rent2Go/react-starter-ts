@@ -31,7 +31,7 @@ const ProductCard = (props: Props) => {
         </p>
         <div className="">
           <Link
-            to={`/product-detail/${props.product.id}`}
+            to={"/product-detail/" + props.product.id}
             className="btn btn-primary btn-sm mr-1"
           >
             Detail

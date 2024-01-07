@@ -8,7 +8,6 @@ import {
   UpdateProduct,
   ProductDetail,
 } from "./pages";
-import { ProductModel } from "./models/responses/ProductModel";
 import "./app.css";
 
 function App(): React.ReactElement {
