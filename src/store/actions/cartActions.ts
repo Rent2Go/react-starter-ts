@@ -1,5 +1,5 @@
 export const addToCart = (product: any) => {
-  return { type: "ADD_TO_CART", payload: product };
+  return  { type: "ADD_TO_CART", payload: product };
 };
 
 export const removeFromCart = (product: any) => {

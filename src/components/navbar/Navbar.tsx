@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,17 +11,18 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-bootstrap/lib/Navbar";
 import { useSelector } from "react-redux";
 import { IoMdCart } from "react-icons/io";
-import "./navbar.css"
-
+import "./navbar.css";
 
 type Props = {};
 
 const Navbars: React.FC<Props> = (props) => {
   const authContext: any = useContext(AuthContext);
-  const cartState = useSelector((state: any) => state.cart.length);
+  const cartState = useSelector((state: any) => state.cart);
+	console.log(cartState);
 
 
   
+
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
@@ -52,7 +53,7 @@ const Navbars: React.FC<Props> = (props) => {
           )}
           <Nav.Item className="nav-item">
             <Nav.Link className="nav-link" href={"/cart"}>
-              <IoMdCart /> {cartState > 0 && <span className="cart-count">{cartState}</span>}
+              <IoMdCart /> {cartState.length}
             </Nav.Link>
           </Nav.Item>
         </Nav>
@@ -62,3 +63,4 @@ const Navbars: React.FC<Props> = (props) => {
 };
 
 export default Navbars;
+

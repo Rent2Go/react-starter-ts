@@ -29,10 +29,9 @@ const ProductCard = (props: Props): JSX.Element => {
 
   const dispatch = useDispatch();
 
-  const addProductToCard = () => {
-    dispatch(addToCart(props.product));
-    console.log(dispatch(addToCart(props.product)))
-  };
+	const addProductToCard = () => {
+		dispatch(addToCart(props.product));
+	};
   return (
     <div className="card">
       <img src={props.product.thumbnail} alt="product_image" />
