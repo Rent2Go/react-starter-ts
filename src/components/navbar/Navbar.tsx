@@ -11,6 +11,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-bootstrap/lib/Navbar";
 import { useSelector } from "react-redux";
 import { IoMdCart } from "react-icons/io";
+import { IoMdLogIn } from "react-icons/io";
+
 import "./navbar.css";
 
 type Props = {};
@@ -18,10 +20,7 @@ type Props = {};
 const Navbars: React.FC<Props> = (props) => {
   const authContext: any = useContext(AuthContext);
   const cartState = useSelector((state: any) => state.cart);
-	console.log(cartState);
-
-
-  
+  console.log(cartState);
 
   return (
     <Navbar bg="dark" data-bs-theme="dark">
@@ -47,7 +46,7 @@ const Navbars: React.FC<Props> = (props) => {
           {!authContext.isAuthenticated && (
             <Nav.Item className="nav-item">
               <Nav.Link className="nav-link" href={"/login"}>
-                Giriş Yap
+                <IoMdLogIn />
               </Nav.Link>
             </Nav.Item>
           )}
@@ -63,4 +62,3 @@ const Navbars: React.FC<Props> = (props) => {
 };
 
 export default Navbars;
-
