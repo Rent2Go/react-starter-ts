@@ -20,8 +20,10 @@ type Props = {};
 const Navbars: React.FC<Props> = (props) => {
   const authContext: any = useContext(AuthContext);
   const cartState = useSelector((state: any) => state.cart);
-  console.log(cartState);
+  console.log("Redux Store:", cartState);
+  console.log(cartState.cartItems.length);
 
+ 
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
@@ -52,7 +54,7 @@ const Navbars: React.FC<Props> = (props) => {
           )}
           <Nav.Item className="nav-item">
             <Nav.Link className="nav-link" href={"/cart"}>
-              <IoMdCart /> {cartState.length}
+              <IoMdCart /> {cartState.cartItems.length}
             </Nav.Link>
           </Nav.Item>
         </Nav>

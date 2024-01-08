@@ -7,6 +7,7 @@ import {
   AddProduct,
   UpdateProduct,
   ProductDetail,
+  Cart,
 } from "./pages";
 import "./app.css";
 import Login from "./pages/login/Login";
@@ -24,6 +25,7 @@ function App(): React.ReactElement {
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/updateProduct/:id" element={<UpdateProduct />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </main>
       <Footer />

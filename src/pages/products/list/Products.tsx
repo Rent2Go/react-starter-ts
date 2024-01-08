@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ProductService from "../../../services/ProductService";
 
 import "../../../pages/products.css";
+import Cart from "../../cart/Cart";
 
 
 type Props = {};
@@ -44,6 +45,7 @@ const Products = (props: Props) => {
     <>
     <Header />
     <div className="productContainer">
+      <Cart />
       <div className="row">
         <div className="col-12">
           <div className="d-flex justify-content-end mb-5">
