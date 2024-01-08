@@ -9,11 +9,14 @@ import logo from "../../assets/fkeo-logo-dark.png";
 import profileImage from "../../assets/profile.jpg";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-bootstrap/lib/Navbar";
+import { useSelector } from "react-redux";
 
 type Props = {};
 
 const Navbars: React.FC<Props> = (props) => {
   const authContext: any = useContext(AuthContext);
+  const cartState = useSelector((state: any) => state.cart);
+  
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
