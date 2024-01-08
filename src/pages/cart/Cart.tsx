@@ -9,7 +9,10 @@ const Cart = (props: Props) => {
   return (
     <div className="container mt-5 ">
       {cartState.cartItems.map((product: any) => (
-        <p>{product.title}</p>
+        <div>
+          <p>{product.title}</p>
+          <p>{product.stock}</p>
+        </div>
       ))}
     </div>
   );
