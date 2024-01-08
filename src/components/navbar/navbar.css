@@ -7,3 +7,6 @@
     margin-left: 5px;
     display: inline-block;
   }
+  .nav-item a svg{
+    font-size:24px;
+  }
