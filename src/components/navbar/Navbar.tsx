@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,10 +7,13 @@ import Image from "react-bootstrap/Image";
 import "./navbar.css";
 import logo from "../../assets/fkeo-logo-dark.png";
 import profileImage from "../../assets/profile.jpg";
+import { AuthContext } from "../../contexts/AuthContext";
+import { Link } from "react-bootstrap/lib/Navbar";
 
 type Props = {};
 
 const Navbars: React.FC<Props> = (props) => {
+  const authContext: any = useContext(AuthContext);
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
@@ -32,6 +35,13 @@ const Navbars: React.FC<Props> = (props) => {
               alt="Profile"
             />
           </Nav.Item>
+          {!authContext.isAuthenticated && (
+            <Nav.Item className="nav-item">
+              <Nav.Link className="nav-link" href={"/login"}>
+                Giriş Yap
+              </Nav.Link>
+            </Nav.Item>
+          )}
         </Nav>
       </Container>
     </Navbar>
