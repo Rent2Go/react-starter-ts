@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./productCard.css";
 import { ProductModel } from "../../models/responses/ProductModel";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/actions/cartActions";
 
 type Props = {
   product: ProductModel;
@@ -19,6 +21,13 @@ const ProductCard = (props: Props) => {
   const handleDelete = () => {
     props.onDelete(props.product.id);
   };
+
+  const ProductCard = (props: Props) => {
+    const dispatch = useDispatch();
+  
+    const addProductToCard = () => {
+      dispatch(addToCart(props.product));
+    };
   return (
     <div className="card">
       <img src={props.product.thumbnail} alt="product_image" />
@@ -44,6 +53,9 @@ const ProductCard = (props: Props) => {
           </Link>
           <button className="btn btn-danger btn-sm " onClick={handleDelete}>
             Delete
+          </button>
+          <button onClick={addProductToCard} className="btn btn-success btn-sm " onClick={handleDelete}>
+            Add to Cart
           </button>
         </div>
       </div>
