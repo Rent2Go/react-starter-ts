@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import "./productCard.css";
 import { ProductModel } from "../../models/responses/ProductModel";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../store/actions/cartActions";
 import { IoMdCart } from "react-icons/io";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 
 import { FaEye } from "react-icons/fa";
 import { Cart } from "../../pages";
+import { addToCart } from "../../toolkitStore/cartSlice";
 
 type Props = {
   product: ProductModel;

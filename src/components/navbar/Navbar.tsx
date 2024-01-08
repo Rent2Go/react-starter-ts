@@ -3,12 +3,9 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
-
-import "./navbar.css";
 import logo from "../../assets/fkeo-logo-dark.png";
 import profileImage from "../../assets/profile.jpg";
 import { AuthContext } from "../../contexts/AuthContext";
-import { Link } from "react-bootstrap/lib/Navbar";
 import { useSelector } from "react-redux";
 import { IoMdCart } from "react-icons/io";
 import { IoMdLogIn } from "react-icons/io";
@@ -19,10 +16,9 @@ type Props = {};
 
 const Navbars: React.FC<Props> = (props) => {
   const authContext: any = useContext(AuthContext);
-  const cartState = useSelector((state: any) => state.cart);
-  console.log("Redux Store:", cartState);
-  console.log(cartState.cartItems.length);
-
+  const {cart} = useSelector((state: any) => state);
+  console.log(cart);
+  
  
   return (
     <Navbar bg="dark" data-bs-theme="dark">
@@ -53,8 +49,8 @@ const Navbars: React.FC<Props> = (props) => {
             </Nav.Item>
           )}
           <Nav.Item className="nav-item">
-            <Nav.Link className="nav-link" href={"/cart"}>
-              <IoMdCart /> {cartState.cartItems.length}
+            <Nav.Link className="nav-link position-relative" href={"/cart"}>
+              <IoMdCart /><span className="position-absolute top-10 left-0  start-75 translate-small badge rounded bg-light text-dark">{cart.length}</span>
             </Nav.Link>
           </Nav.Item>
         </Nav>

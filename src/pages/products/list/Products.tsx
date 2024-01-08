@@ -45,7 +45,7 @@ const Products = (props: Props) => {
     <>
     <Header />
     <div className="productContainer">
-      <Cart />
+     
       <div className="row">
         <div className="col-12">
           <div className="d-flex justify-content-end mb-5">

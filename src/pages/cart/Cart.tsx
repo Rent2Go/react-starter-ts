@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 type Props = {};
 
 const Cart = (props: Props) => {
-  const cartState = useSelector((state: any) => state.cart);
-  console.log(cartState.cartItems);
+  const {cart} = useSelector((state: any) => state);
+  console.log(cart);
   return (
     <div className="container mt-5 ">
-      {cartState.cartItems.map((product: any) => (
+      {cart.map((product: any) => (
         <div>
           <p>{product.title}</p>
           <p>{product.stock}</p>
