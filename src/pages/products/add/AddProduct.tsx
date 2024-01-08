@@ -1,8 +1,22 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import Input from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AddProductModel } from "../../../models/requests/AddProduct";
+import { Formik, Form, Field, FieldAttributes, useField } from "formik";
+
+const FileInput: React.FC<FieldAttributes<any>> = ({ ...props }) => {
+  const [field, meta] = useField(props);
+
+  return (
+    <>
+      <input {...field} {...props} type="file" accept="image/*" />
+      {meta.touched && meta.error ? (
+        <div className="error">{meta.error}</div>
+      ) : null}
+    </>
+  );
+};
 
 interface AddProductProps {}
 
@@ -11,6 +25,12 @@ const AddProduct: React.FC<AddProductProps> = () => {
     title: "",
     description: "",
   });
+  const initialValues = {
+    title: "",
+    description: "",
+    price: 0,
+    stock: 0,
+  };
 
   const [submittedProduct, setSubmittedProduct] =
     useState<AddProductModel | null>(null);
@@ -29,17 +49,9 @@ const AddProduct: React.FC<AddProductProps> = () => {
     const numericValue = value === "" ? undefined : parseFloat(value);
     setProduct((prevProduct) => ({ ...prevProduct, [name]: numericValue }));
   };
-
-  const handleFileChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const fileInput = e.target as HTMLInputElement;
-    const files = fileInput.files;
-
-    if (files && files.length > 0) {
-      const thumbnail = URL.createObjectURL(files[0]);
-      setProduct((prevProduct) => ({ ...prevProduct, thumbnail }));
-    }
+  const handleFileChange = (file: File) => {
+    const thumbnail = URL.createObjectURL(file);
+    setProduct((prevProduct) => ({ ...prevProduct, thumbnail }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -55,135 +67,150 @@ const AddProduct: React.FC<AddProductProps> = () => {
             <h2 className="text-center mt-2 mb-5">Add New Product</h2>
           </div>
         </div>
-        <Form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <Form.Group className="mb-3" controlId="formCategoryName">
-                <Form.Label>Category Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Category Name"
-                  name="category"
-                  value={product.category}
-                  onChange={handleChange}
-                />
-              </Form.Group>
+        <Formik initialValues={initialValues} onSubmit={(values) => {}}>
+          <Form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Category Name</label>
+                  <Field
+                    className="form-control"
+                    type="text"
+                    placeholder="Enter Category Name"
+                    name="category"
+                    value={product.category}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Brand Name</label>
+                  <Field
+                    className="form-control"
+                    type="text"
+                    placeholder="Enter Brand Name"
+                    name="brand"
+                    value={product.brand}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="col-md-6 col-sm-12">
-              <Form.Group className="mb-3" controlId="formBrandName">
-                <Form.Label>Brand Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Brand Name"
-                  name="brand"
-                  value={product.brand}
-                  onChange={handleChange}
-                />
-              </Form.Group>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Product Name</label>
+                  <Field
+                    className="form-control"
+                    type="text"
+                    placeholder="Enter Product Name"
+                    name="title"
+                    value={product.title}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Description</label>
+                  <Field
+                    className="form-control"
+                    type="text"
+                    placeholder="Enter Description of Product"
+                    name="description"
+                    value={product.description}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <Form.Group className="mb-3" controlId="formProductName">
-                <Form.Label>Product Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Product Name"
-                  name="title"
-                  value={product.title}
-                  onChange={handleChange}
-                />
-              </Form.Group>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Discount</label>
+                  <Field
+                    className="form-control"
+                    type="text"
+                    placeholder="Enter Percentage of Discount"
+                    name="discountPercentage"
+                    value={product.discountPercentage?.toString() || ""}
+                    onChange={handleNumberChange}
+                  />
+                </div>
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Price</label>
+                  <Field
+                    className="form-control"
+                    type="text"
+                    placeholder="Enter Price of Products"
+                    name="price"
+                    value={product.price?.toString() || ""}
+                    onChange={handleNumberChange}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="col-md-6 col-sm-12">
-              <Form.Group className="mb-3" controlId="formDescription">
-                <Form.Label>Description</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Description of Product"
-                  name="description"
-                  value={product.description}
-                  onChange={handleChange}
-                />
-              </Form.Group>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Stock</label>
+                  <Field
+                    className="form-control"
+                    type="text"
+                    placeholder="Enter Stock "
+                    name="stock"
+                    value={product.stock?.toString() || ""}
+                    onChange={handleNumberChange}
+                  />
+                </div>
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Rating</label>
+                  <Field
+                    className="form-control"
+                    type="text"
+                    placeholder="Enter Rating of Product"
+                    name="rating"
+                    value={product.rating?.toString() || ""}
+                    onChange={handleNumberChange}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <Form.Group className="mb-3" controlId="formDiscount">
-                <Form.Label>Discount</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Percentage of Discount"
-                  name="discountPercentage"
-                  value={product.discountPercentage?.toString() || ""}
-                  onChange={handleNumberChange}
-                />
-              </Form.Group>
+            <div className="row text-center mt-5">
+              <div className="col-md-12 col-sm-12">
+                <div className=" mb-3">
+                  <label className="form-label">Thumbnail</label>
+                  <Field
+                    name="thumbnail"
+                    component={FileInput}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      const files = e.target.files;
+                      if (files && files.length > 0) {
+                        handleFileChange(files[0]);
+                      }
+                    }}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="col-md-6 col-sm-12">
-              <Form.Group className="mb-3" controlId="formPrice">
-                <Form.Label>Price</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Price of Products"
-                  name="price"
-                  value={product.price?.toString() || ""}
-                  onChange={handleNumberChange}
-                />
-              </Form.Group>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <Form.Group className="mb-3" controlId="formStock">
-                <Form.Label>Stock</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Stock "
-                  name="stock"
-                  value={product.stock?.toString() || ""}
-                  onChange={handleNumberChange}
-                />
-              </Form.Group>
-            </div>
-            <div className="col-md-6 col-sm-12">
-              <Form.Group className="mb-3" controlId="formRating">
-                <Form.Label>Rating</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Rating of Product"
-                  name="rating"
-                  value={product.rating?.toString() || ""}
-                  onChange={handleNumberChange}
-                />
-              </Form.Group>
-            </div>
-          </div>
-          <div className="row text-center mt-5">
-            <div className="col-md-12 col-sm-12">
-              <Form.Group className="mb-3" controlId="formThumbnail">
-                <Form.Label>Thumbnail</Form.Label>
-                <Form.Control
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                />
-              </Form.Group>
-            </div>
-          </div>
 
-          <div className="row text-center mt-5">
-            <div className="col-md-12 col-sm-12">
-              <Button variant="primary btn-sm" type="submit">
-                Submit
-              </Button>
-              <Link to="/products" className="btn btn-danger btn-sm">
-                Cancel
-              </Link>
+            <div className="row text-center mt-5">
+              <div className="col-md-12 col-sm-12">
+                <Button variant="primary btn-sm" type="submit">
+                  Submit
+                </Button>
+                <Link to="/products" className="btn btn-danger btn-sm">
+                  Cancel
+                </Link>
+              </div>
             </div>
-          </div>
-        </Form>
+          </Form>
+        </Formik>
 
         {submittedProduct && (
           <div className="">
