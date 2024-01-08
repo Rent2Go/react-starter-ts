@@ -9,6 +9,7 @@ import {
   ProductDetail,
 } from "./pages";
 import "./app.css";
+import Login from "./pages/login/Login";
 
 function App(): React.ReactElement {
   return (
@@ -22,6 +23,7 @@ function App(): React.ReactElement {
           <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/updateProduct/:id" element={<UpdateProduct />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <Footer />
