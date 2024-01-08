@@ -4,6 +4,11 @@ import "./productCard.css";
 import { ProductModel } from "../../models/responses/ProductModel";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../store/actions/cartActions";
+import { IoMdCart } from "react-icons/io";
+import { CiEdit } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
+
+import { FaEye } from "react-icons/fa";
 
 type Props = {
   product: ProductModel;
@@ -17,17 +22,17 @@ function truncateString(text: string, maxLength: number): string {
   }
 }
 
-const ProductCard = (props: Props) => {
+const ProductCard = (props: Props): JSX.Element => {
   const handleDelete = () => {
     props.onDelete(props.product.id);
   };
 
-  const ProductCard = (props: Props) => {
-    const dispatch = useDispatch();
-  
-    const addProductToCard = () => {
-      dispatch(addToCart(props.product));
-    };
+  const dispatch = useDispatch();
+
+  const addProductToCard = () => {
+    dispatch(addToCart(props.product));
+    console.log(dispatch(addToCart(props.product)))
+  };
   return (
     <div className="card">
       <img src={props.product.thumbnail} alt="product_image" />
@@ -42,20 +47,32 @@ const ProductCard = (props: Props) => {
           <Link
             to={"/product-detail/" + props.product.id}
             className="btn btn-primary btn-sm mr-1"
+            aria-label="Detail"
           >
-            Detail
+            <FaEye />
           </Link>
           <Link
             to={`/updateProduct/${props.product.id}`}
             className="btn btn-warning btn-sm mr-1"
+            aria-label="Update"
           >
-            Update
+            <CiEdit />
           </Link>
-          <button className="btn btn-danger btn-sm " onClick={handleDelete}>
-            Delete
+          <button
+            type="button"
+            className="btn btn-danger btn-sm "
+            onClick={handleDelete}
+            aria-label="Delete"
+          >
+            <MdDelete />
           </button>
-          <button onClick={addProductToCard} className="btn btn-success btn-sm " onClick={handleDelete}>
-            Add to Cart
+          <button
+            type="button"
+            onClick={addProductToCard}
+            className="btn btn-success btn-sm "
+            aria-label="Add to Cart"
+          >
+            <IoMdCart />
           </button>
         </div>
       </div>

@@ -10,12 +10,17 @@ import profileImage from "../../assets/profile.jpg";
 import { AuthContext } from "../../contexts/AuthContext";
 import { Link } from "react-bootstrap/lib/Navbar";
 import { useSelector } from "react-redux";
+import { IoMdCart } from "react-icons/io";
+import "./navbar.css"
+
 
 type Props = {};
 
 const Navbars: React.FC<Props> = (props) => {
   const authContext: any = useContext(AuthContext);
-  const cartState = useSelector((state: any) => state.cart);
+  const cartState = useSelector((state: any) => state.cart.length);
+
+
   
   return (
     <Navbar bg="dark" data-bs-theme="dark">
@@ -45,6 +50,11 @@ const Navbars: React.FC<Props> = (props) => {
               </Nav.Link>
             </Nav.Item>
           )}
+          <Nav.Item className="nav-item">
+            <Nav.Link className="nav-link" href={"/cart"}>
+              <IoMdCart /> {cartState > 0 && <span className="cart-count">{cartState}</span>}
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       </Container>
     </Navbar>
