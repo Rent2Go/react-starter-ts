@@ -50,7 +50,7 @@ const Navbars: React.FC<Props> = (props) => {
           )}
           <Nav.Item className="nav-item">
             <Nav.Link className="nav-link position-relative" href={"/cart"}>
-              <IoMdCart /><span className="position-absolute top-10 left-0  start-75 translate-small badge rounded bg-light text-dark">{cart.length}</span>
+              <IoMdCart /><span className="position-absolute top-10 left-0  start-75 translate-small badge rounded bg-light text-dark opacity-50">{cart.length}</span>
             </Nav.Link>
           </Nav.Item>
         </Nav>
