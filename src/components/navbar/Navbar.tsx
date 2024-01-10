@@ -16,6 +16,15 @@ type Props = {};
 
 const Navbars: React.FC<Props> = (props) => {
   const cartState = useSelector((state: any) => state.cart);
+
+  useEffect(() => {
+    localStorage.setItem("token", "abc");
+    localStorage.setItem("user", "feyza");
+    let user = localStorage.getItem("user")
+  
+    console.log(user);
+    
+  })
   const authContext: any = useContext(AuthContext);
   console.log("cartState", cartState);
 
