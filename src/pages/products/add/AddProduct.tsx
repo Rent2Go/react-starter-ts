@@ -141,8 +141,8 @@ const AddProduct: React.FC<AddProductProps> = () => {
                     className="form-control"
                     type="text"
                     placeholder="Enter Percentage of Discount"
-                    name="discountPercentage"
-                    value={product.discountPercentage?.toString() || ""}
+                    name="discount_percentage"
+                    value={product.discount_percentage?.toString() || ""}
                     onChange={handleNumberChange}
                   />
                 </div>
@@ -253,7 +253,7 @@ const AddProduct: React.FC<AddProductProps> = () => {
                       <div className="col-6">
                         <p className="card-text">
                           <strong>Discount Percentage:</strong>{" "}
-                          {submittedProduct.discountPercentage}
+                          {submittedProduct.discount_percentage}
                         </p>
                       </div>
                       <div className="col-6">
