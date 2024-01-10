@@ -18,10 +18,11 @@ const Products = (props: Props) => {
   }, [deletedIds]);
 
   const fetchProducts = () => {
-    let service: ProductService = new ProductService();
+    let service = new ProductService();
     service.getAll().then((response) => {
-      setProducts(response.data);
-      console.log("data",response.data);
+      const productData = Array.isArray(response.data) ? response.data : [];
+      setProducts(productData);
+      console.log("data", productData);
     });
   };
   const [deletedProductIds, setDeletedProductIds] = useState<number[]>([]);
