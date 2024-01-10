@@ -23,7 +23,7 @@ const Footer = (): JSX.Element => (
       >
         <FaLinkedin size={30} className="icon" />
       </Link>
-      <Link to="https://github.com/feyzaerat" >
+      <Link to="https://github.com/rent2go" >
         <FaGithub size={30} className="icon" />
       </Link>
     </div>
@@ -36,7 +36,7 @@ const Footer = (): JSX.Element => (
         
       >
         {" "}
-        feyzaerat.com.tr
+        rent2go.feyzaerat.com.tr
       </Link>
     </div>
   </footer>
