@@ -110,11 +110,11 @@ const UpdateProduct = () => {
                 <Form.Label>Discount</Form.Label>
                 <Form.Control
                   type="text"
-                  value={product.discountPercentage?.toString() || ""}
+                  value={product.discount_percentage?.toString() || ""}
                   onChange={(e) =>
                     setProduct((prevProduct) => ({
                       ...prevProduct,
-                      discountPercentage: parseFloat(e.target.value) || 0,
+                      discount_percentage: parseFloat(e.target.value) || 0,
                     }))
                   }
                 />
@@ -213,7 +213,7 @@ const UpdateProduct = () => {
                       <div className="col-6">
                         <p className="card-text">
                           <strong>Discount Percentage:</strong>{" "}
-                          {updatedProduct.discountPercentage}
+                          {updatedProduct.discount_percentage}
                         </p>
                       </div>
                       <div className="col-6">

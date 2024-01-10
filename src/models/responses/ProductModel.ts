@@ -3,11 +3,11 @@ export interface ProductModel {
   title: string;
   description: string;
   price?: number;
-  discountPercentage?: number;
+  discount_percentage?: number;
   rating?: number;
   stock?: number;
   brand?: string;
   category?: string;
-  thumbnail?: string;
-  images?: string[];
+  thumbnailUrl?: string;
+  product_images?: string[];
 }

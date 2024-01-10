@@ -31,8 +31,8 @@ const ProductDetail = (props: Props) => {
           </div>
           <div className="col-12 mb-3 mt-2" key={productDetail?.id}>
             <div className="productDetail__section-image_container">
-              {productDetail?.images ? (
-                productDetail.images.map((image, index) => (
+              {productDetail?.product_images ? (
+                productDetail.product_images.map((image, index) => (
                   <img key={index} src={image} alt={`Product Image ${index + 1}`} />
                 ))
               ) : (
@@ -55,7 +55,7 @@ const ProductDetail = (props: Props) => {
                 <strong>Price:</strong> {productDetail?.price}
               </p>
               <p className="">
-                <strong>Discount:</strong> {productDetail?.discountPercentage}
+                <strong>Discount:</strong> {productDetail?.discount_percentage}
               </p>
               <p className="">
                 <strong>Stock:</strong> {productDetail?.stock}

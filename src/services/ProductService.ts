@@ -4,7 +4,7 @@ import { ProductModel } from "../models/responses/ProductModel";
 
 class ProductService{
     getAll(){
-        return axios.get<GetAllProductsModel>("http://localhost:8080/api/v1/products")
+        return axios.get<ProductModel[]>("http://localhost:8080/api/v1/products")
     }
 
     getById(id:Number){
