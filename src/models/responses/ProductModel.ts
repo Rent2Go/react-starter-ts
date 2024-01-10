@@ -9,5 +9,5 @@ export interface ProductModel {
   brand?: string;
   category?: string;
   thumbnailUrl?: string;
-  product_images?: string[];
+  productImages?: string[];
 }

@@ -21,6 +21,7 @@ const ProductDetail = (props: Props) => {
     let service: ProductService = new ProductService();
     let response = await service.getById(parseInt(id));
     setProductDetail(response.data);
+    console.log(response.data);
   };
   return (
     <div className="main">
@@ -31,8 +32,8 @@ const ProductDetail = (props: Props) => {
           </div>
           <div className="col-12 mb-3 mt-2" key={productDetail?.id}>
             <div className="productDetail__section-image_container">
-              {productDetail?.product_images ? (
-                productDetail.product_images.map((image, index) => (
+              {productDetail?.productImages ? (
+                productDetail.productImages.map((image, index) => (
                   <img key={index} src={image} alt={`Product Image ${index + 1}`} />
                 ))
               ) : (
