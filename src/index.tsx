@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 );
 const globalStore = store;
 root.render(
-  <Provider store={globalStore}>
+  <Provider store={store}>
   <AuthProvider>
     <BrowserRouter>
       <App />
