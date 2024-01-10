@@ -4,7 +4,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 const initialState: any = [];
 const cartSlice = createSlice({
   name: "cart",
-  initialState,
+  initialState: {cartItems: []},
   reducers: {
     addToCart: (state, action: PayloadAction<any>) => {
       const existingItemIndex = state.findIndex(
