@@ -1,19 +1,19 @@
 {
-  "short_name": "FKE App",
-  "name": "FKE Product API App",
+  "short_name": "Rent2Go",
+  "name": "Rent2Go Product API App",
   "icons": [
     {
-      "src": "fkeo-logo-dark.png",
+      "src": "logo-dark.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "fkeo-logo-dark.png",
+      "src": "logo-dark.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "fkeo-logo-dark.png",
+      "src": "logo-dark.png",
       "type": "image/png",
       "sizes": "512x512"
     }

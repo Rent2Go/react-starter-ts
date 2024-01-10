@@ -1,16 +1,30 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import Input from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AddProductModel } from "../../../models/requests/AddProduct";
 import { Formik, Form, Field, FieldAttributes, useField } from "formik";
 
+
+
 const FileInput: React.FC<FieldAttributes<any>> = ({ ...props }) => {
   const [field, meta] = useField(props);
+  const [fileInfo, setFileInfo] = useState<File | null>(null);
 
   return (
     <>
-      <input {...field} {...props} type="file" accept="image/*" />
+      <input
+        {...field}
+        {...props}
+        type="file"
+        accept="image/*"
+        onChange={(e) => {
+          const files = e.target.files;
+          if (files && files.length > 0) {
+            setFileInfo(files[0]);
+          }
+          field.onChange(e);
+        }}
+      />
       {meta.touched && meta.error ? (
         <div className="error">{meta.error}</div>
       ) : null}
@@ -48,10 +62,6 @@ const AddProduct: React.FC<AddProductProps> = () => {
     const { name, value } = e.target;
     const numericValue = value === "" ? undefined : parseFloat(value);
     setProduct((prevProduct) => ({ ...prevProduct, [name]: numericValue }));
-  };
-  const handleFileChange = (file: File) => {
-    const thumbnail = URL.createObjectURL(file);
-    setProduct((prevProduct) => ({ ...prevProduct, thumbnail }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -185,15 +195,12 @@ const AddProduct: React.FC<AddProductProps> = () => {
               <div className="col-md-12 col-sm-12">
                 <div className=" mb-3">
                   <label className="form-label">Thumbnail</label>
-                  <Field
+                
+                  <FileInput
                     name="thumbnail"
                     component={FileInput}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                      const files = e.target.files;
-                      if (files && files.length > 0) {
-                        handleFileChange(files[0]);
-                      }
-                    }}
+                    type= "file"
+                    label="Product Thumbnail"
                   />
                 </div>
               </div>
@@ -219,10 +226,12 @@ const AddProduct: React.FC<AddProductProps> = () => {
               <div className="col-12">
                 <div className="card previewCard">
                   <div className="card-header">
-                    <img
-                      src={submittedProduct.thumbnail}
-                      alt="product-thumbnail"
-                    />
+                  {submittedProduct.thumbnail && (
+                      <img
+                        src="{submittedProduct.thumbnail}"
+                        alt="product-thumbnail"
+                      />
+                    )}
                   </div>
                   <div className="card-body">
                     <h5 className="card-title">{submittedProduct.title}</h5>

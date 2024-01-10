@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
-import logo from "../../assets/fkeo-logo-dark.png";
+import logo from "../../assets/logo-dark.png";
 import profileImage from "../../assets/profile.jpg";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useSelector } from "react-redux";
