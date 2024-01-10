@@ -69,6 +69,7 @@ const Login = (props: Props) => {
                 onClick={() => {
                   authContext.setIsAuthenticated(true);
                   navigate("/");
+                  localStorage.setItem("token", "abc");
                 }}
               >
                 Submit
