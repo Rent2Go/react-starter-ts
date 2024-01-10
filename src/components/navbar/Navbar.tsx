@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Container from "react-bootstrap/Container";
+import { NavDropdown } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
@@ -9,6 +10,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { useSelector } from "react-redux";
 import { IoMdCart } from "react-icons/io";
 import { IoMdLogIn, IoMdLogOut } from "react-icons/io";
+import { FaUserCircle } from "react-icons/fa";
 
 import "./navbar.css";
 
@@ -39,31 +41,42 @@ const Navbars: React.FC<Props> = (props) => {
           <Nav.Link href="/categories">Categories</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Item>
-            <Image
-              src={profileImage}
-              width={40}
-              height={40}
-              roundedCircle
-              alt="Profile"
-            />
-          </Nav.Item>
-          {!authContext.isAuthenticated && (
-            <Nav.Item className="nav-item">
-              <Nav.Link className="nav-link" href={"/login"}>
-                <IoMdLogIn />
-              </Nav.Link>
-            </Nav.Item>
+          {authContext.isAuthenticated ? (
+            <NavDropdown
+              title={
+                <Image
+                  src={profileImage}
+                  width={30}
+                  height={30}
+                  roundedCircle
+                  alt="Profile"
+                />
+              }
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item href="/profile">
+                <FaUserCircle size={20} />
+                Profile
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/login">
+                <IoMdLogOut size={20}/> Logout
+              </NavDropdown.Item>
+
+              <NavDropdown.Divider />
+            </NavDropdown>
+          ) : (
+            <>
+              <Nav.Item className="nav-item">
+                <Nav.Link className="nav-link" href={"/login"}>
+                  <IoMdLogIn size={20}/>
+                </Nav.Link>
+              </Nav.Item>
+            </>
           )}
-          <Nav.Item>
-            <Nav.Link className="nav-link" href={"/logout"}>
-              <IoMdLogOut />
-            </Nav.Link>
-          </Nav.Item>
           <Nav.Item className="nav-item">
             <Nav.Link className="nav-link position-relative" href={"/cart"}>
               <IoMdCart />
-              <span className="position-absolute top-10 left-0  start-75 translate-small badge rounded bg-light text-dark opacity-50">
+              <span className="position-absolute top-10 start-75 translate-small badge rounded bg-light text-dark opacity-50">
                 {cartState.cartItems.length}
               </span>
             </Nav.Link>
