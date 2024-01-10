@@ -9,6 +9,7 @@ import { MdDelete } from "react-icons/md";
 
 import { FaEye } from "react-icons/fa";
 import { Cart } from "../../pages";
+import { addToCart } from "../../toolkitStore/slices/cartSlice";
 
 type Props = {
   product: ProductModel;
@@ -29,7 +30,9 @@ const ProductCard = (props: Props): JSX.Element => {
 
   const dispatch = useDispatch();
 
- 
+  const addProductToCard = () => {
+    dispatch(addToCart(props.product));
+  };
   return (
     <div>
      
@@ -68,7 +71,7 @@ const ProductCard = (props: Props): JSX.Element => {
             </button>
             <button
               type="button"
-              
+              onClick={addProductToCard}
               className="btn btn-success btn-sm "
               aria-label="Add to Cart"
             >

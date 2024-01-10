@@ -15,9 +15,9 @@ import "./navbar.css";
 type Props = {};
 
 const Navbars: React.FC<Props> = (props) => {
+  const cartState = useSelector((state: any) => state.cart);
   const authContext: any = useContext(AuthContext);
-  const {cart} = useSelector((state: any) => state);
-  console.log(cart);
+console.log("cartState", cartState);
   
  
   return (
@@ -50,7 +50,7 @@ const Navbars: React.FC<Props> = (props) => {
           )}
           <Nav.Item className="nav-item">
             <Nav.Link className="nav-link position-relative" href={"/cart"}>
-              <IoMdCart /><span className="position-absolute top-10 left-0  start-75 translate-small badge rounded bg-light text-dark opacity-50">{cart.length}</span>
+              <IoMdCart /><span className="position-absolute top-10 left-0  start-75 translate-small badge rounded bg-light text-dark opacity-50">{cartState.cartItems.length}</span>
             </Nav.Link>
           </Nav.Item>
         </Nav>
