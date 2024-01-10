@@ -8,7 +8,7 @@ import profileImage from "../../assets/profile.jpg";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useSelector } from "react-redux";
 import { IoMdCart } from "react-icons/io";
-import { IoMdLogIn } from "react-icons/io";
+import { IoMdLogIn, IoMdLogOut } from "react-icons/io";
 
 import "./navbar.css";
 
@@ -20,11 +20,10 @@ const Navbars: React.FC<Props> = (props) => {
   useEffect(() => {
     localStorage.setItem("token", "abc");
     localStorage.setItem("user", "feyza");
-    let user = localStorage.getItem("user")
-  
+    let user = localStorage.getItem("user");
+
     console.log(user);
-    
-  })
+  });
   const authContext: any = useContext(AuthContext);
   console.log("cartState", cartState);
 
@@ -56,6 +55,11 @@ const Navbars: React.FC<Props> = (props) => {
               </Nav.Link>
             </Nav.Item>
           )}
+          <Nav.Item>
+            <Nav.Link className="nav-link" href={"/logout"}>
+              <IoMdLogOut />
+            </Nav.Link>
+          </Nav.Item>
           <Nav.Item className="nav-item">
             <Nav.Link className="nav-link position-relative" href={"/cart"}>
               <IoMdCart />
