@@ -15,7 +15,6 @@ const cartSlice = createSlice({
         
         state[existingItemIndex].quantity += 1;
       } else {
-        // Ürün sepette yok, yeni ürünü ekle
         state.push({
           ...action.payload,
           quantity: 1, 

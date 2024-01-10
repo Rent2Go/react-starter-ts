@@ -9,7 +9,7 @@ import { MdDelete } from "react-icons/md";
 
 import { FaEye } from "react-icons/fa";
 import { Cart } from "../../pages";
-import { addToCart } from "../../toolkitStore/cartSlice";
+import { addToCart } from "../../toolkitStore/slices/cartSlice";
 
 type Props = {
   product: ProductModel;
