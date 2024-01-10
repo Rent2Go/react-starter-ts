@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { AddProductModel } from "../../../models/requests/AddProduct";
 import { Formik, Form, Field, FieldAttributes, useField } from "formik";
 
-
-
 const FileInput: React.FC<FieldAttributes<any>> = ({ ...props }) => {
   const [field, meta] = useField(props);
   const [fileInfo, setFileInfo] = useState<File | null>(null);
@@ -195,11 +193,11 @@ const AddProduct: React.FC<AddProductProps> = () => {
               <div className="col-md-12 col-sm-12">
                 <div className=" mb-3">
                   <label className="form-label">Thumbnail</label>
-                
+
                   <FileInput
                     name="thumbnail"
                     component={FileInput}
-                    type= "file"
+                    type="file"
                     label="Product Thumbnail"
                   />
                 </div>
@@ -226,7 +224,7 @@ const AddProduct: React.FC<AddProductProps> = () => {
               <div className="col-12">
                 <div className="card previewCard">
                   <div className="card-header">
-                  {submittedProduct.thumbnail && (
+                    {submittedProduct.thumbnail && (
                       <img
                         src="{submittedProduct.thumbnail}"
                         alt="product-thumbnail"

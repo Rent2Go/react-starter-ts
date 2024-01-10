@@ -6,24 +6,16 @@ import { Link } from "react-router-dom";
 const Footer = (): JSX.Element => (
   <footer className="page-footer font-small blue pt-4 bg-dark text-white">
     <div className="footer-icons text-center py-3">
-      <Link
-        to="https://instagram.com/fkesoftware"
-        target="_blank"
-        
-      >
+      <Link to="https://instagram.com/fkesoftware" target="_blank">
         <FaInstagram size={30} className="icon" />
       </Link>
-      <Link to="https://youtube.com/" target="_blank" >
+      <Link to="https://youtube.com/" target="_blank">
         <FaYoutube size={30} className="icon" />
       </Link>
-      <Link
-        to="https://linkedin.com/in/feyzakaranfilerat"
-        target="_blank"
-        
-      >
+      <Link to="https://linkedin.com/in/feyzakaranfilerat" target="_blank">
         <FaLinkedin size={30} className="icon" />
       </Link>
-      <Link to="https://github.com/rent2go" >
+      <Link to="https://github.com/rent2go">
         <FaGithub size={30} className="icon" />
       </Link>
     </div>
@@ -33,7 +25,6 @@ const Footer = (): JSX.Element => (
         to="https://feyzaerat.com.tr/"
         className="text-white text-decoration-none"
         target="_blank"
-        
       >
         {" "}
         rent2go.feyzaerat.com.tr

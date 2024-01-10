@@ -15,10 +15,10 @@ const root = ReactDOM.createRoot(
 const globalStore = store;
 root.render(
   <Provider store={store}>
-  <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </AuthProvider>
+    <AuthProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AuthProvider>
   </Provider>
 );

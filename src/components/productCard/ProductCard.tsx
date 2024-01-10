@@ -35,8 +35,6 @@ const ProductCard = (props: Props): JSX.Element => {
   };
   return (
     <div>
-     
-      
       <div className="card">
         <img src={props.product.thumbnail} alt="product_image" />
         <div className="card-body">
