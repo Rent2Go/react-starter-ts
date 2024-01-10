@@ -9,9 +9,5 @@ export interface ProductModel {
   brand?: string;
   category?: string;
   thumbnailUrl?: string;
-<<<<<<< HEAD
-  images?: string[];
-=======
   product_images?: string[];
->>>>>>> feyza
 }
