@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
-import logo from "../../assets/fkeo-logo-dark.png";
+import logo from "../../assets/logo-dark.png";
 import profileImage from "../../assets/profile.jpg";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useSelector } from "react-redux";
@@ -50,7 +50,7 @@ const Navbars: React.FC<Props> = (props) => {
           )}
           <Nav.Item className="nav-item">
             <Nav.Link className="nav-link position-relative" href={"/cart"}>
-              <IoMdCart /><span className="position-absolute top-10 left-0  start-75 translate-small badge rounded bg-light text-dark">{cart.length}</span>
+              <IoMdCart /><span className="position-absolute top-10 left-0  start-75 translate-small badge rounded bg-light text-dark opacity-50">{cart.length}</span>
             </Nav.Link>
           </Nav.Item>
         </Nav>
