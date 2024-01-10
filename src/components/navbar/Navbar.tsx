@@ -59,7 +59,7 @@ const Navbars: React.FC<Props> = (props) => {
                 Profile
               </NavDropdown.Item>
               <NavDropdown.Item href="/login">
-                <IoMdLogOut size={20}/> Logout
+                <IoMdLogOut size={20} /> Logout
               </NavDropdown.Item>
 
               <NavDropdown.Divider />
@@ -68,7 +68,7 @@ const Navbars: React.FC<Props> = (props) => {
             <>
               <Nav.Item className="nav-item">
                 <Nav.Link className="nav-link" href={"/login"}>
-                  <IoMdLogIn size={20}/>
+                  <IoMdLogIn size={20} />
                 </Nav.Link>
               </Nav.Item>
             </>

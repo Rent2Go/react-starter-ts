@@ -4,11 +4,11 @@ import { ProductModel } from "../models/responses/ProductModel";
 
 class ProductService{
     getAll(){
-        return axios.get<GetAllProductsModel>("https://dummyjson.com/products")
+        return axios.get<GetAllProductsModel>("http://localhost:8080/api/v1/products")
     }
 
     getById(id:Number){
-        return axios.get<ProductModel>(`https://dummyjson.com/products/${id}`);
+        return axios.get<ProductModel>(`http://localhost:8080/api/v1/products/${id}`);
     }
 }
 
