@@ -6,8 +6,8 @@ export const fetchProducts = createAsyncThunk(
   async (args, thunkAPI) => {
     const state: any = thunkAPI.getState();
 
-    if (state.product.products.length > 0 && !(new Date().getDate() - state.product.lastFetch > 6000)) {
-      return state.products;
+    if (state.product.products.length > 0 && !(new Date().getTime() - state.product.lastFetch > 6000)) {
+      return state.product.products;
     }
     const service: ProductService = new ProductService();
     const response = await service.getAll();

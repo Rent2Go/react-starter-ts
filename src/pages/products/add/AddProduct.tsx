@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { AddProductModel } from "../../../models/requests/AddProduct";
+import { FormikInput } from "../../../components";
 import { Formik, Form, Field, FieldAttributes, useField } from "formik";
 
 const FileInput: React.FC<FieldAttributes<any>> = ({ ...props }) => {
@@ -38,10 +39,14 @@ const AddProduct: React.FC<AddProductProps> = () => {
     description: "",
   });
   const initialValues = {
+    product:"",
+    category:"",
     title: "",
     description: "",
+    discount:0,
     price: 0,
     stock: 0,
+    rating:0
   };
 
   const [submittedProduct, setSubmittedProduct] =
@@ -75,132 +80,85 @@ const AddProduct: React.FC<AddProductProps> = () => {
             <h2 className="text-center mt-2 mb-5">Add New Product</h2>
           </div>
         </div>
-        <Formik initialValues={initialValues} onSubmit={(values) => {}}>
-          <Form onSubmit={handleSubmit}>
-            <div className="row">
-              <div className="col-md-6 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Category Name</label>
-                  <Field
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Category Name"
-                    name="category"
-                    value={product.category}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="col-md-6 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Brand Name</label>
-                  <Field
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Brand Name"
-                    name="brand"
-                    value={product.brand}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Product Name</label>
-                  <Field
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Product Name"
-                    name="title"
-                    value={product.title}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-              <div className="col-md-6 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Description</label>
-                  <Field
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Description of Product"
-                    name="description"
-                    value={product.description}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Discount</label>
-                  <Field
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Percentage of Discount"
-                    name="discount_percentage"
-                    value={product.discount_percentage?.toString() || ""}
-                    onChange={handleNumberChange}
-                  />
-                </div>
-              </div>
-              <div className="col-md-6 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Price</label>
-                  <Field
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Price of Products"
-                    name="price"
-                    value={product.price?.toString() || ""}
-                    onChange={handleNumberChange}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-md-6 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Stock</label>
-                  <Field
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Stock "
-                    name="stock"
-                    value={product.stock?.toString() || ""}
-                    onChange={handleNumberChange}
-                  />
-                </div>
-              </div>
-              <div className="col-md-6 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Rating</label>
-                  <Field
-                    className="form-control"
-                    type="text"
-                    placeholder="Enter Rating of Product"
-                    name="rating"
-                    value={product.rating?.toString() || ""}
-                    onChange={handleNumberChange}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="row text-center mt-5">
-              <div className="col-md-12 col-sm-12">
-                <div className=" mb-3">
-                  <label className="form-label">Thumbnail</label>
+   
 
-                  <FileInput
-                    name="thumbnail"
-                    component={FileInput}
-                    type="file"
-                    label="Product Thumbnail"
-                  />
-                </div>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={values => {
+            console.log(values);
+          }}
+        
+        >
+          <Form>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <FormikInput
+                  name="category"
+                  label="Category Name"
+                  placeHolder="Please Enter the Category Name"
+                />
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <FormikInput
+                  name="title"
+                  label="Product Name"
+                  placeHolder="Please Enter the Product Name"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+              <FormikInput
+              name="brand"
+              label="Brand Name"
+              placeHolder="Please Enter the Brand Name"
+            />
+              </div>
+              <div className="col-md-6 col-sm-12">
+              <FormikInput
+              name="description"
+              label="Description of Product"
+              placeHolder="Please Enter a Description of Product"
+            />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+              <FormikInput
+              name="discount"
+              label="Discount Percentage of Product"
+              type="number"
+              placeHolder="Please Enter a Discount Percentage of Product"
+            />
+              </div>
+              <div className="col-md-6 col-sm-12">
+              <FormikInput
+              name="price"
+              label="Price of Product"
+              type="number"
+              placeHolder="Please Enter the Price of Product"
+              //value={product.price?.toString() || ""}
+            />
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+              <FormikInput
+              name="stock"
+              label="Stock"
+              type="number"
+              placeHolder="Please Enter the Stock of Product"
+            />
+              </div>
+              <div className="col-md-6 col-sm-12">
+              <FormikInput
+              name="rating"
+              label="Rating"
+              type="number"
+              placeHolder="Please Enter the Rating of Product"
+            />
               </div>
             </div>
 
@@ -214,6 +172,13 @@ const AddProduct: React.FC<AddProductProps> = () => {
                 </Link>
               </div>
             </div>
+
+            
+            
+            
+            
+            
+         
           </Form>
         </Formik>
 
@@ -223,14 +188,7 @@ const AddProduct: React.FC<AddProductProps> = () => {
             <div className="row mt-4">
               <div className="col-12">
                 <div className="card previewCard">
-                  <div className="card-header">
-                    {submittedProduct.thumbnail && (
-                      <img
-                        src="{submittedProduct.thumbnail}"
-                        alt="product-thumbnail"
-                      />
-                    )}
-                  </div>
+                  <div className="card-header"></div>
                   <div className="card-body">
                     <h5 className="card-title">{submittedProduct.title}</h5>
                     <p className="card-text">{submittedProduct.description}</p>
