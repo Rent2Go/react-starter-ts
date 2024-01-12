@@ -1,5 +1,9 @@
 import {ProductModel} from "./ProductModel";
 
 export interface GetAllProductsModel {
-  products: ProductModel[];
+
+  total:number;
+  skip:number;
+  limit:number;
+  products: ProductModel[] ;
 }

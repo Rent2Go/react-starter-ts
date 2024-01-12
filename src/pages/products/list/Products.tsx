@@ -6,12 +6,16 @@ import { GetAllProductsModel } from "../../../models/responses/GetAllProducts";
 
 import "../../../pages/products.css";
 import { ProductModel } from "../../../models/responses/ProductModel";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../../toolkitStore/slices/productSlice";
+import { AppDispatch } from "../../../toolkitStore/store";
 
 type Props = {};
 
 const Products = (props: Props) => {
-  const [products, setProducts] = useState<ProductModel[]>([]);
   const [deletedIds, setDeletedIds] = useState<number[]>([]);
+
+  /*const [products, setProducts] = useState<ProductModel[]>([]);
 
   useEffect(() => {
     fetchProducts();
@@ -23,7 +27,14 @@ const Products = (props: Props) => {
       setProducts(response.data);
       console.log("data",response.data);
     });
-  };
+  };*/
+  const productsState = useSelector((state: any) => state.product);
+	const dispatch = useDispatch <AppDispatch>();
+	useEffect(() => {
+		dispatch(fetchProducts());
+	}, []);
+
+
   const [deletedProductIds, setDeletedProductIds] = useState<number[]>([]);
 
   const handleDelete = (productId: number) => {
@@ -47,7 +58,7 @@ const Products = (props: Props) => {
           </div>
         </div>
         <div className="row">
-          {products.map((product) => (
+          {productsState.products.map((product:any) => (
             <div
               key={product.id}
               className="col-xl-3 col-l-4 col-md-6 col-sm-12"
